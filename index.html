@@ -16,7 +16,11 @@ let cell = [];
 resetBtn.addEventListener('click', () => {
     removeCells();
     gridSize = prompt('Scale');
-    createDivs(gridSize);
+    if (gridSize > 100) {
+        gridSize = prompt('Choose a new scale, max 100'); 
+    }
+        createDivs(gridSize);
+    
 });
 
 function createDivs(gridSize) {
@@ -30,7 +34,8 @@ for (let i = 0; i < numberOfCells; i++) {
     container.appendChild(cell[i]);
 }
 cell.forEach(div => { div.addEventListener('mouseover', (e) => {
-    e.target.style.backgroundColor = "black";
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    e.target.style.backgroundColor = `#${randomColor}`;
 });
 });
 };
