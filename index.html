@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="home.css">
+<body>
+
+<div id='container'></div>
+<button class='btn' id='reset-btn'>Reset</button>
+
+</body>
+<script>
+const container = document.querySelector('#container');
+const resetBtn = document.querySelector('#reset-btn');
+let cell = [];
+
+resetBtn.addEventListener('click', () => {
+    removeCells();
+    gridSize = prompt('Scale');
+    createDivs(gridSize);
+});
+
+function createDivs(gridSize) {
+
+container.style.gridTemplateColumns = (`repeat(${gridSize}, 1fr`);
+container.style.gridTemplateRows = (`repeat(${gridSize}, 1fr`);
+let numberOfCells = gridSize * gridSize;
+for (let i = 0; i < numberOfCells; i++) {
+    cell[i] = document.createElement('div');
+    cell[i].classList.add('cell');
+    container.appendChild(cell[i]);
+}
+cell.forEach(div => { div.addEventListener('mouseover', (e) => {
+    e.target.style.backgroundColor = "black";
+});
+});
+};
+function removeCells() {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild)
+    };
+};
+
+</script>
+</head>
+</html>

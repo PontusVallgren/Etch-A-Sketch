@@ -1,0 +1,14 @@
+#container {
+    display: grid;
+    height: 49vw;
+    width: 49vw;
+    border: 1px rgba(0, 0, 0, 0.404) solid;
+}
+
+.cell {
+    border: 1px rgba(0, 0, 0, 0.041) solid;
+    background-color: rgb(124, 124, 124);
+  }
+cell:hover {
+    background-color: black;
+}
